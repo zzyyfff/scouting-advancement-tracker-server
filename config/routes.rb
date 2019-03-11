@@ -9,4 +9,9 @@ Rails.application.routes.draw do
   post '/sign-in' => 'users#signin'
   delete '/sign-out' => 'users#signout'
   patch '/change-password' => 'users#changepw'
+  patch '/change-rank' => 'users#changerank'
+  patch '/change-name' => 'users#changename'
+
+  # remove get users for production
+  get '/users' => 'users#index'
 end
