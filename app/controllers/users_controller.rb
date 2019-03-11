@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class UsersController < ProtectedController
-  skip_before_action :authenticate, only: %i[signup signin index] #remove index for production
+  # remove :index for production
+  skip_before_action :authenticate, only: %i[signup signin index]
 
   # GET '/users'
   # temporary for development, remove for production
@@ -54,19 +55,14 @@ class UsersController < ProtectedController
   end
 
   def changerank
-    current_user.scout_rank = rank_params[:rank]
+    current_user.scout_rank = rank_params[:rank] unless rank_params[:rank].empty?
     current_user.save
   end
 
   def changename
-    if name_params[:first] && (name_params[:first] != '')
-      current_user.first_name = name_params[:first]
-      current_user.save
-    end
-    if name_params[:last] && (name_params[:last] != '')
-      current_user.last_name = name_params[:last]
-      current_user.save
-    end
+    current_user.first_name = name_params[:first] unless name_params[:first].empty?
+    current_user.last_name = name_params[:last] unless name_params[:last].empty?
+    current_user.save
   end
 
   private
