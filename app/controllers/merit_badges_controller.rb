@@ -28,7 +28,7 @@ class MeritBadgesController < OpenReadController
 
   # PATCH/PUT /merit_badges/1
   def update
-    if current_user.merit_badges.update(merit_badge_params)
+    if @merit_badge.update(merit_badge_params)
       render json: @merit_badge
     else
       render json: @merit_badge.errors, status: :unprocessable_entity
