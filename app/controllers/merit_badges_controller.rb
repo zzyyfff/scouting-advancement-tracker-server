@@ -17,9 +17,6 @@ class MeritBadgesController < OpenReadController
 
   # POST /merit_badges
   def create
-    # puts '======================================'
-    # puts current_user.merit_badges
-    # puts '======================================'
     @merit_badge = current_user.merit_badges.build(merit_badge_params)
 
     if @merit_badge.save

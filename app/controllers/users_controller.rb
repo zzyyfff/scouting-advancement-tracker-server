@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class UsersController < ProtectedController
+class UsersController < OpenReadController
   # remove :index for production
   skip_before_action :authenticate, only: %i[signup signin index]
 
