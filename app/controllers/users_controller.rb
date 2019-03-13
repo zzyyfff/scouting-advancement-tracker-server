@@ -57,12 +57,14 @@ class UsersController < OpenReadController
   def changerank
     current_user.scout_rank = rank_params[:rank] unless rank_params[:rank].empty?
     current_user.save
+    render json: current_user
   end
 
   def changename
     current_user.first_name = name_params[:first] unless name_params[:first].empty?
     current_user.last_name = name_params[:last] unless name_params[:last].empty?
     current_user.save
+    render json: current_user
   end
 
   private
