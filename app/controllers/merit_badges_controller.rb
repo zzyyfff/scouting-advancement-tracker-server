@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-class MeritBadgesController < OpenReadController
+class MeritBadgesController < ProtectedController
   before_action :set_merit_badge, only: %i[show update destroy]
 
   # GET /merit_badges
   def index
-    @merit_badges = MeritBadge.all
+    @merit_badges = current_user.merit_badges
 
     render json: @merit_badges
   end
@@ -44,7 +44,7 @@ class MeritBadgesController < OpenReadController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_merit_badge
-    @merit_badge = MeritBadge.find(params[:id])
+    @merit_badge = current_user.merit_badges.find(params[:id])
   end
 
   # Only allow a trusted parameter "white list" through.
