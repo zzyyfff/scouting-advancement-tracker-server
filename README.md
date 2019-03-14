@@ -95,19 +95,19 @@ merit_badges columns: id, name, completed, notes, user_id
 
 ## API End Points
 
-| Verb   | URI Pattern              | Controller#Action    |
-|--------|--------------------------|----------------------|
-| POST   | `/sign-up`               | `users#signup`       |
-| POST   | `/sign-in`               | `users#signin`       |
-| DELETE | `/sign-out`              | `users#signout`      |
-| PATCH  | `/change-password`       | `users#changepw`     |
-| PATCH  | `/change-rank`           | `users#changerank`   |
-| PATCH  | `/change-name`           | `users#changename`   |
-| GET    | `/merit_badges`          | `merit_badges#index` |
-| GET    | `/merit_badges/:id`      | `merit_badges#show`  |
-| POST   | `/merit_badges`          | `merit_badges#create`|
-| GET    | `/merit_badges/:id`      | `merit_badges#show`  |
-| PATCH  | `/merit_badges/:id`      | `merit_badges#update`|
+| Verb   | URI Pattern              | Controller#Action     |
+|--------|--------------------------|-----------------------|
+| POST   | `/sign-up`               | `users#signup`        |
+| POST   | `/sign-in`               | `users#signin`        |
+| DELETE | `/sign-out`              | `users#signout`       |
+| PATCH  | `/change-password`       | `users#changepw`      |
+| PATCH  | `/change-rank`           | `users#changerank`    |
+| PATCH  | `/change-name`           | `users#changename`    |
+| GET    | `/merit_badges`          | `merit_badges#index`  |
+| GET    | `/merit_badges/:id`      | `merit_badges#show`   |
+| POST   | `/merit_badges`          | `merit_badges#create` |
+| DELETE | `/merit_badges/:id`      | `merit_badges#destroy`|
+| PATCH  | `/merit_badges/:id`      | `merit_badges#update` |
 
 All data returned from API actions is formatted as JSON.
 
